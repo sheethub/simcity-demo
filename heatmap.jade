@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		title Traffic API
+		include ../j_piece/header
+
+		link(rel="stylesheet", href="./leaflet/leaflet.css")
+		script(type="text/javascript", src="./leaflet/leaflet.js")
+
+		script(type="text/javascript", src="../lib/js/topojson.min.js")
+		script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?v=3.exp")
+		script(type="text/javascript", src="./google.js")
+		script(type="text/javascript", src="./leaflet-heat.js")
+		
+
+	body
+		div#map
+	
+		script(type="text/javascript", src="./js/heat_dots.js")
