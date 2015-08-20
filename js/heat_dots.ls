@@ -21,8 +21,12 @@ styles = [
 	
 
 map = new L.map "map", {center: [25.0172264, 121.506378], zoom: 12}
-ggl = new L.Google 'ROADMAP', { mapOptions: { styles: styles} }
-map.addLayer ggl
+osm = new L.tileLayer 'http://{s}.tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png'
+# 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+map.addLayer osm
+
+# ggl = new L.Google 'ROADMAP', { mapOptions: { styles: styles} }
+
 
 
 err, data <- d3.json "./data/臺北市受保護樹木.json"
@@ -34,7 +38,7 @@ data = data["features"]
 	)
 
 
-L.heatLayer data, {"radius": 20} .addTo map
+L.heatLayer data, {"radius": 50} .addTo map
 
 
 

@@ -1,0 +1,23 @@
+doctype html
+html
+	head
+		title Traffic API
+		include ../j_piece/header
+
+		link(rel="stylesheet", href="./leaflet/leaflet.css")
+		link(rel="stylesheet", href="./css/dc.css")
+		
+		script(type="text/javascript", src="./leaflet/leaflet.js")
+
+		script(type="text/javascript", src="../lib/js/topojson.min.js")
+		script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?v=3.exp")
+		script(type="text/javascript", src="./google.js")
+
+		script(type="text/javascript", src="./crossfilter.min.js")
+		script(type="text/javascript", src="./dc.min.js")
+
+	body
+		div#map
+		div#filter
+	
+		script(type="text/javascript", src="./js/dots_filter.js")

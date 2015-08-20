@@ -1,4 +1,4 @@
-var _, styles, map, ggl;
+var _, styles, map, osm;
 _ = require("prelude-ls");
 d3.selectAll('#map').style({
   "height": "800px",
@@ -89,12 +89,8 @@ map = new L.map("map", {
   center: [25.0172264, 121.506378],
   zoom: 12
 });
-ggl = new L.Google('ROADMAP', {
-  mapOptions: {
-    styles: styles
-  }
-});
-map.addLayer(ggl);
+osm = new L.tileLayer('http://{s}.tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png');
+map.addLayer(osm);
 d3.json("./data/臺北市受保護樹木.json", function(err, data){
   data = _.map(function(it){
     var c;
@@ -103,6 +99,6 @@ d3.json("./data/臺北市受保護樹木.json", function(err, data){
   })(
   data["features"]);
   return L.heatLayer(data, {
-    "radius": 20
+    "radius": 50
   }).addTo(map);
 });
